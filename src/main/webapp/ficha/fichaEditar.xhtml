@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Mesa RPG Online</title>
+
+        <!-- Load css styles -->
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/pluton.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/animate.css" />
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <!-- Navigation button, visible on small resolution -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <!-- Main navigation -->
+                    <div class="nav-collapse collapse pull-right">
+                        <h:form>
+                            <ul class="nav" id="top-navigation">
+                                <li class="active"><h:commandLink action="#{navegacaoBean.inicio()}">Inicio</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.jogar()}">Jogar</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.mestrar()}">Mestrar</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.minhasFichas()}">Minhas Fichas</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.meusDados()}">Meus Dados</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.desconectar()}">Desconectar</h:commandLink></li>
+                            </ul>
+                        </h:form>
+                    </div>
+                    <!-- End main navigation -->
+                </div>
+            </div>
+        </div>
+
+        <div class="section secondary-section ">
+
+        </div>
+        <div class="section primary-section">
+            <div class="container">
+
+                <div class="centralizado borda">	
+
+                    <h:form class="formulario">
+                        <div>
+                            <center>    
+                                <h1>Minha Ficha</h1>
+                                <h:messages globalOnly="false" style="color:red; display:block"  />
+                            </center>
+                        </div>
+                        <div>
+                            <div class="coluna">
+
+                                <h:panelGrid class="tabela" columns="2" >
+
+                                    <h:outputLabel value="Nome:" for="nome"/>
+                                    <h:inputText id="nome" label="Nome" maxlength="50" value="#{fichaBean.ficha.nome}" required="true"/>                                
+
+                                    <h:outputLabel value="Pontos:" for="pontos"/>
+                                    <h:inputText id="pontos" label="Pontos" value="#{fichaBean.ficha.pontos}" required="true"/>
+                                </h:panelGrid>    
+
+                                <h3>Habilidades</h3>
+                                <h:panelGrid class="tabela" columns="2" >
+
+
+                                    <h:outputLabel value="Força:" for="forca"/>
+                                    <h:inputText size="3" id="forca" label="Força" value="#{fichaBean.ficha.forca}" required="true"/>
+
+                                    <h:outputLabel value="Habilidade:" for="habilidade"/>
+                                    <h:inputText size="3" id="habilidade" label="Habilidade" value="#{fichaBean.ficha.habilidade}" required="true"/>
+
+                                    <h:outputLabel value="Resistencia:" for="resistencia"/>
+                                    <h:inputText size="3" id="resistencia" label="Resistencia" value="#{fichaBean.ficha.resistencia}" required="true"/>
+
+                                    <h:outputLabel value="Armadura:" for="armadura"/>
+                                    <h:inputText size="3" id="armadura" label="Armadura" value="#{fichaBean.ficha.armadura}" required="true"/>
+
+                                    <h:outputLabel value="Poder de Fogo:" for="poderdefogo"/>
+                                    <h:inputText size="3" id="poderdefogo" label="Poder de Fogo" value="#{fichaBean.ficha.poderDeFogo}" required="true"/>
+
+                                    <h:column></h:column>
+                                    <h:column></h:column>
+
+                                    <h:outputLabel value="Pontos de Vida:" for="pontosdevida"/>
+                                    <h:inputText size="3" id="pontosdevida" label="Pontos de Vida" value="#{fichaBean.ficha.pontosDeVida}" required="true"/>
+
+                                    <h:outputLabel value="Pontos de Magia:" for="pontosdemagia"/>
+                                    <h:inputText size="3" id="pontosdemagia" label="Pontos de Magia" value="#{fichaBean.ficha.pontosDeMagia}" required="true"/>
+
+                                    <h:outputLabel value="Pontos de Experiencia:" for="pontosdeexperiencia"/>
+                                    <h:inputText size="3" id="pontosdeexperiencia" label="Pontos de Experiencia" value="#{fichaBean.ficha.pontosDeExperiencia}" required="true"/>
+
+                                </h:panelGrid>
+
+                            </div>
+
+                            <div class="coluna">
+                                <h:panelGrid class="tabela" columns="1">
+
+                                    <h:outputLabel value="Vantagens:" for="vantagens"/>
+                                    <h:inputTextarea  id="vantagens" label="Vantagens" maxlength="500" value="#{fichaBean.ficha.vantagens}" required="false"/>
+
+                                    <h:outputLabel value="Desvantagens:" for="desvantagens"/>
+                                    <h:inputTextarea   id="desvantagens" label="Desvantagens" maxlength="500" value="#{fichaBean.ficha.desvantagens}" required="false"/>
+
+                                    <h:outputLabel value="Tipos de Dano:" for="tiposdedano"/>
+                                    <h:inputTextarea  id="tiposdedano" label="Tipos de Dano" maxlength="200" value="#{fichaBean.ficha.tiposDeDano}" required="false"/>
+
+
+                                    <h:outputLabel value="Itens:" for="itens"/>
+                                    <h:inputTextarea    id="itens" label="Itens" maxlength="500" value="#{fichaBean.ficha.itens}" required="false"/>
+
+                                    <h:outputLabel value="Hisotria: " for="historia"/>
+                                    <h:inputTextarea  id="historia" label="Historia" maxlength="500" value="#{fichaBean.ficha.historia}" required="false"/>
+                                </h:panelGrid>
+                            </div>
+
+                        </div>
+
+                        <div class="centralizado rodape">
+                            <div class="coluna margem_pequena">
+                                <h:commandButton class="button button-sp" action="#{fichaBean.editar}" value="Salvar" 
+                                                 onclick="if (!confirm('Deseja realmente salvar as alteraÃ§Ãµes?'))
+                                                             return false;"/>
+                            </div>
+                            <div class="coluna margem_pequena">
+                                <h:commandButton class="button button-sp" immediate="true" action="#{fichaBean.consultarFicha}" value="Cencelar" />
+                            </div>
+                        </div>
+                    </h:form>
+
+                </div>
+
+                <!-- -->
+
+            </div>
+        </div>
+        <!-- Service section end -->
+        <!-- Portfolio section start -->
+        <div class="section secondary-section " id="portfolio">
+            <div class="triangle"></div>
+        </div>
+
+        <!-- Footer section start -->
+        <div class="footer">
+            <p>2015 Mesa de RPG Online </p>
+        </div>
+        <!-- Footer section end -->
+        <!-- ScrollUp button start -->
+        <div class="scrollup">
+            <a href="#">
+                <i class="icon-up-open"></i>
+            </a>
+        </div>
+        <!-- ScrollUp button end -->
+        <!-- Include javascript -->
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/bootstrap.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.cslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.inview.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/app.js"></script>
+    </body>
+</html>

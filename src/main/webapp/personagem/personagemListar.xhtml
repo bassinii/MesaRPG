@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Mesa RPG Online</title>
+
+        <!-- Load css styles -->
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/pluton.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/animate.css" />
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <!-- Navigation button, visible on small resolution -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <!-- Main navigation -->
+                    <div class="nav-collapse collapse pull-right">
+                        <h:form>
+                            <ul class="nav" id="top-navigation">
+                                <li class="active"><h:commandLink action="#{navegacaoBean.inicio()}">Inicio</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.jogar()}">Jogar</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.mestrar()}">Mestrar</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.minhasFichas()}">Minhas Fichas</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.meusDados()}">Meus Dados</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.desconectar()}">Desconectar</h:commandLink></li>
+                            </ul>
+                        </h:form>
+                    </div>
+                    <!-- End main navigation -->
+                </div>
+            </div>
+        </div>
+
+        <div class="section secondary-section ">
+
+        </div>
+        <div class="section primary-section">
+            <div class="container">
+
+                <div class="centralizado borda">	
+
+                    <h:form  class="formulario margem">
+
+                        <div>
+
+                            <h:messages errorStyle="color:red; display:block"  />
+
+                            <div class="margem_pequena">
+                                <h:outputLabel value="Nome do Jogador: " for="nome"/>
+                            </div>
+                            <div class="margem_pequena">
+                                <h:inputText id="nome" label="Nome do Jogador" maxlength="50" value="#{personagemBean.nome}" />
+                            </div>
+                            <div class="margem_pequena">
+                                <h:commandButton class="button button-sp" value="Adicionar" action="#{personagemBean.adicionarPersonagem()}" />             
+                            </div>
+
+                        </div>
+                        <br/>
+                        <div >
+
+                            <h:dataTable value="#{personagemBean.personagens}" var="personagem" class="tabela">
+
+                                <f:facet name="header"><h3>Minhas de Aventuras</h3></f:facet>
+
+                                <h:column>
+                                    <f:facet name="header">Nome</f:facet>
+                                    <h:outputText value="#{personagem.usuario.login}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Personagem</f:facet>
+                                    <h:outputText value="#{personagem.ficha.nome}" />
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:commandButton class="button button-sp" value="Remover" action="#{personagemBean.removerPersonagem}" >
+                                        <f:setPropertyActionListener value="#{personagem}" target="#{personagemBean.personagem}"/>  
+                                    </h:commandButton>
+                                </h:column>
+                            </h:dataTable>
+
+                            <h:commandButton class="button button-sp" value="Voltar" action="#{personagemBean.voltarPaginaAventura()}" />
+
+
+                        </div>
+
+                    </h:form>
+
+                </div>
+
+                <!-- -->
+
+            </div>
+        </div>
+        <!-- Service section end -->
+        <!-- Portfolio section start -->
+        <div class="section secondary-section " id="portfolio">
+            <div class="triangle"></div>
+        </div>
+
+        <!-- Footer section start -->
+        <div class="footer">
+            <p>2015 Mesa de RPG Online </p>
+        </div>
+        <!-- Footer section end -->
+        <!-- ScrollUp button start -->
+        <div class="scrollup">
+            <a href="#">
+                <i class="icon-up-open"></i>
+            </a>
+        </div>
+        <!-- ScrollUp button end -->
+        <!-- Include javascript -->
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/bootstrap.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.cslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.inview.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/app.js"></script>
+    </body>
+</html>

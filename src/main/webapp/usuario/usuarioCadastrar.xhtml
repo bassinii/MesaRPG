@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Mesa RPG Online</title>
+
+        <!-- Load css styles -->
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/pluton.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/animate.css" />
+    </head>
+    <body>
+        <div class="section">
+            
+        </div>
+
+        <div class="section secondary-section ">
+
+        </div>
+        <div class="section primary-section">
+            <div class="container">
+
+                <div class="centralizado borda margem">	
+
+                    <h:form>
+                        <div class="margem">
+                            <h3>Cadastro de Usuarios</h3>
+                            <h:messages globalOnly="true" errorStyle="color:red; display:block"  />
+
+                            <h:panelGrid columns="3" cellpadding="5">
+                                <h:outputLabel value="Nome:" for="nome"/>
+                                <h:inputText id="nome" label="Nome" value="#{novoUsuarioBean.novoUsuario.nome}" required="true"/>
+                                <h:messages for="nome"/>
+
+                                <h:outputLabel value="E-Mail" for="email" />
+                                <h:inputText id="email" label="E-mail" value="#{novoUsuarioBean.novoUsuario.email}" required="true"/>
+                                <h:messages for="email"/>
+
+                                <h:outputLabel value="Login" for="login" />
+                                <h:inputText id="login" label="Login" value="#{novoUsuarioBean.novoUsuario.login}" required="true"/>
+                                <h:messages for="login"/>
+
+                                <h:outputLabel value="Senha:" for="senha" />
+                                <h:inputSecret id="senha" label="Senha" value="#{novoUsuarioBean.novoUsuario.senha}" required="true"/>
+                                <h:messages for="senha" />
+
+                            </h:panelGrid>
+                        </div>
+                        <div class="centralizado">
+                            <div class="coluna margem_pequena">
+                                <h:commandButton class="button button-sp" action="#{novoUsuarioBean.salvar()}" value="Salvar"/>
+                            </div>
+                            <div class="coluna margem_pequena">
+                                <h:commandButton class="button button-sp" immediate="true" action="#{novoUsuarioBean.voltarPaginaLogin()}" value="Cancelar"/>
+                            </div>
+                        </div>
+
+                    </h:form>
+
+                </div>
+
+                <!-- -->
+
+            </div>
+        </div>
+        <!-- Service section end -->
+        <!-- Portfolio section start -->
+        <div class="section secondary-section " id="portfolio">
+            <div class="triangle"></div>
+        </div>
+
+        <!-- Footer section start -->
+        <div class="footer">
+            <p>2015 Mesa de RPG Online </p>
+        </div>
+        <!-- Footer section end -->
+        <!-- ScrollUp button start -->
+        <div class="scrollup">
+            <a href="#">
+                <i class="icon-up-open"></i>
+            </a>
+        </div>
+        <!-- ScrollUp button end -->
+        <!-- Include javascript -->
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/bootstrap.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.cslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.inview.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/app.js"></script>
+    </body>
+</html>

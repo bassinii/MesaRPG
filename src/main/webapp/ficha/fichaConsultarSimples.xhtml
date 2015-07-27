@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Mesa RPG Online</title>
+
+        <!-- Load css styles -->
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/pluton.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/animate.css" />
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <!-- Navigation button, visible on small resolution -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <!-- Main navigation -->
+                    <div class="nav-collapse collapse pull-right">
+                        <h:form>
+                            <ul class="nav" id="top-navigation">
+                                <li class="active"><h:commandLink action="#{navegacaoBean.inicio()}">Inicio</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.jogar()}">Jogar</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.mestrar()}">Mestrar</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.minhasFichas()}">Minhas Fichas</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.meusDados()}">Meus Dados</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.desconectar()}">Desconectar</h:commandLink></li>
+                            </ul>
+                        </h:form>
+                    </div>
+                    <!-- End main navigation -->
+                </div>
+            </div>
+        </div>
+
+        <div class="section secondary-section ">
+
+        </div>
+        <div class="section primary-section">
+            <div class="container">
+
+                <div class="centralizado borda">	
+
+                    <h:form class="formulario">
+                        <div>
+                            <center>    
+                                <h2>FICHA - 3DeT Alpha</h2>
+                                <h:messages globalOnly="false" style="color:red; display:block"  />
+                            </center>
+                        </div>
+                        <div>
+                            <div class="coluna">
+
+                                <h:panelGrid class="tabela" columns="2" >
+
+                                    <h:outputLabel value="Nome:" for="nome"/>
+                                    <h:outputText id="nome"  value="#{fichaSimplesBean.ficha.nome}" />                                
+
+                                    <h:outputLabel value="Pontos:" for="pontos"/>
+                                    <h:outputText id="pontos"  value="#{fichaSimplesBean.ficha.pontos}" />
+                                </h:panelGrid>    
+
+                                <h3>Habilidades</h3>
+                                <h:panelGrid class="tabela" columns="2" >
+
+
+                                    <h:outputLabel value="Força:" for="forca"/>
+                                    <h:outputText id="forca" value="#{fichaSimplesBean.ficha.forca}" />
+
+                                    <h:outputLabel value="Habilidade:" for="habilidade"/>
+                                    <h:outputText id="habilidade" value="#{fichaSimplesBean.ficha.habilidade}" />
+
+                                    <h:outputLabel value="Resistencia:" for="resistencia"/>
+                                    <h:outputText id="resistencia" value="#{fichaSimplesBean.ficha.resistencia}" />
+
+                                    <h:outputLabel value="Armadura:" for="armadura"/>
+                                    <h:outputText id="armadura"  value="#{fichaSimplesBean.ficha.armadura}" />
+
+                                    <h:outputLabel value="Poder de Fogo:" for="poderdefogo"/>
+                                    <h:outputText id="poderdefogo"  value="#{fichaSimplesBean.ficha.poderDeFogo}" />
+
+                                    <h:column></h:column>
+                                    <h:column></h:column>
+
+                                    <h:outputLabel value="Pontos de Vida:" for="pontosdevida"/>
+                                    <h:outputText id="pontosdevida"  value="#{fichaSimplesBean.ficha.pontosDeVida}"/>
+
+                                    <h:outputLabel value="Pontos de Magia:" for="pontosdemagia"/>
+                                    <h:outputText id="pontosdemagia" value="#{fichaSimplesBean.ficha.pontosDeMagia}"/>
+
+                                    <h:outputLabel value="Pontos de Experiencia:" for="pontosdeexperiencia"/>
+                                    <h:outputText id="pontosdeexperiencia"  value="#{fichaSimplesBean.ficha.pontosDeExperiencia}" />
+
+                                </h:panelGrid>
+
+                            </div>
+
+                            <div class="coluna">
+                                <h:panelGrid class="tabela" columns="1">
+
+                                    <h:outputLabel value="Vantagens:" for="vantagens"/>
+                                    <h:inputTextarea  class="desativado" id="vantagens" label="Vantagens" value="#{fichaSimplesBean.ficha.vantagens}" required="false" disabled="true"/>
+
+                                    <h:outputLabel value="Desvantagens:" for="desvantagens"/>
+                                    <h:inputTextarea  class="desativado" id="desvantagens" label="Desvantagens" value="#{fichaSimplesBean.ficha.desvantagens}" required="false" disabled="true"/>
+
+                                    <h:outputLabel value="Tipos de Dano:" for="tiposdedano"/>
+                                    <h:inputTextarea class="desativado" id="tiposdedano" label="Tipos de Dano" value="#{fichaSimplesBean.ficha.tiposDeDano}" required="false" disabled="true"/>
+
+
+                                    <h:outputLabel value="Itens:" for="itens"/>
+                                    <h:inputTextarea  class="desativado"  id="itens" label="Itens" value="#{fichaSimplesBean.ficha.itens}" required="false" disabled="true"/>
+
+                                    <h:outputLabel value="Historia: " for="historia"/>
+                                    <h:inputTextarea class="desativado"  id="historia" label="Historia" value="#{fichaSimplesBean.ficha.historia}" required="false" disabled="true"/>
+                                </h:panelGrid>
+                            </div>
+
+                        </div>
+
+                        <div class="centralizado rodape">
+                            <div class="coluna margem_pequena">
+                                <h:commandButton class="button button-sp" immediate="true" action="#{fichaSimplesBean.voltarPaginaJogo()}" value="Voltar" />
+                            </div>
+                        </div>
+                    </h:form>
+
+                </div>
+
+                <!-- -->
+
+            </div>
+        </div>
+        <!-- Service section end -->
+        <!-- Portfolio section start -->
+        <div class="section secondary-section " id="portfolio">
+            <div class="triangle"></div>
+        </div>
+
+        <!-- Footer section start -->
+        <div class="footer">
+            <p>2015 Mesa de RPG Online </p>
+        </div>
+        <!-- Footer section end -->
+        <!-- ScrollUp button start -->
+        <div class="scrollup">
+            <a href="#">
+                <i class="icon-up-open"></i>
+            </a>
+        </div>
+        <!-- ScrollUp button end -->
+        <!-- Include javascript -->
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/bootstrap.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.cslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.inview.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/app.js"></script>
+    </body>
+</html>

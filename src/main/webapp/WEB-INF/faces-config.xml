@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee"
+    version="2.2">
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/usuarioLogin.xhtml</to-view-id>
+        </navigation-case>
+        
+        
+        <navigation-case>
+            <from-outcome>cadastrarUsuario</from-outcome>
+            <to-view-id>/usuario/usuarioCadastrar.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>inicio</from-outcome>
+            <to-view-id>/index/index.xhtml</to-view-id>
+        </navigation-case>
+        
+        
+        <navigation-case>
+            <from-outcome>consultarUsuario</from-outcome>
+            <to-view-id>/usuario/usuarioConsultar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editarUsuario</from-outcome>
+            <to-view-id>/usuario/usuarioEditar.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listarFichas</from-outcome>
+            <to-view-id>/ficha/fichaListar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastrarFicha</from-outcome>
+            <to-view-id>/ficha/fichaCadastrar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>consultarFicha</from-outcome>
+            <to-view-id>/ficha/fichaConsultar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editarFicha</from-outcome>
+            <to-view-id>/ficha/fichaEditar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>selecionarFicha</from-outcome>
+            <to-view-id>/ficha/fichaSelecionar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>consultarFichaSimples</from-outcome>
+            <to-view-id>/ficha/fichaConsultarSimples.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>consultarFichaJogador</from-outcome>
+            <to-view-id>/ficha/fichaConsultarJogador.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editarFichaJogador</from-outcome>
+            <to-view-id>/ficha/fichaEditarJogador.xhtml</to-view-id>
+        </navigation-case>
+        
+        
+        <navigation-case>
+            <from-outcome>listarAventuraMestre</from-outcome>
+            <to-view-id>/aventura/mestre/aventuraMestreListar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editarAventuraMestre</from-outcome>
+            <to-view-id>/aventura/mestre/aventuraMestreEditar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cadastrarAventuraMestre</from-outcome>
+            <to-view-id>/aventura/mestre/aventuraMestreCadastrar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>mestrarAventura</from-outcome>
+            <to-view-id>/aventura/mestre/aventuraMestrar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>gerenciarPersonagens</from-outcome>
+            <to-view-id>/personagem/personagemListar.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listarAventuraJogador</from-outcome>
+            <to-view-id>/aventura/jogador/aventuraJogadorListar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>jogarAventura</from-outcome>
+            <to-view-id>/aventura/jogador/aventuraJogar.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    
+    <application>
+        <message-bundle>recursos.messages</message-bundle>
+    </application>
+    
+</faces-config>

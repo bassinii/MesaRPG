@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Mesa RPG Online</title>
+
+        <!-- Load css styles -->
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/pluton.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.getContextPath()}/css/animate.css" />
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+
+                    <!-- Navigation button, visible on small resolution -->
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <!-- Main navigation -->
+                    <div class="nav-collapse collapse pull-right">
+                        <h:form>
+                            <ul class="nav" id="top-navigation">
+                                <li class="active"><h:commandLink action="#{navegacaoBean.inicio()}">Inicio</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.jogar()}">Jogar</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.mestrar()}">Mestrar</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.minhasFichas()}">Minhas Fichas</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.meusDados()}">Meus Dados</h:commandLink></li>
+                                <li><h:commandLink action="#{navegacaoBean.desconectar()}">Desconectar</h:commandLink></li>
+                            </ul>
+                        </h:form>
+                    </div>
+                    <!-- End main navigation -->
+                </div>
+            </div>
+        </div>
+
+        <div class="section secondary-section ">
+
+        </div>
+        <div class="section primary-section">
+            <div class="container">
+
+                <div class="centralizado borda">	
+
+                    <h:form>
+                        <div>
+
+
+                            <div class="span4">
+                                <div class="centered service">
+                                    <div class="circle-border zoom-in">
+                                        <h:commandLink action="#{indexBean.jogarAventura}">
+                                            <h:graphicImage class="img-circle" url="/imagens/Jogar.png" alt="Jogar Aventura" width="150" height="150"/><br/>                                        
+                                        </h:commandLink>
+                                    </div>
+                                    <div>
+                                        <h:outputText value="Jogar" />
+                                        <p>Venha jogar uma aventura junto aos seus amigos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="centered service">
+                                    <div class="circle-border zoom-in">
+                                        <h:commandLink action="#{indexBean.mestrarAventura}" >
+                                            <h:graphicImage class="img-circle" url="/imagens/Mestrar.png" alt="Jogar Aventura" width="150" height="150"/><br/>
+                                        </h:commandLink>
+                                    </div>
+                                    <div>
+                                        <h:outputText value="Mestrar" />
+                                        <p>Convide seus amigos e mestre uma aventura.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+                            <div class="span4">
+                                <div class="centered service">
+                                    <div class="circle-border zoom-in">
+                                        <h:commandLink action="#{indexBean.gerenciarFichas}" >
+                                            <h:graphicImage class="img-circle" url="/imagens/Ficha.png" alt="Jogar Aventura" width="150" height="150"/><br/>
+
+                                        </h:commandLink> 
+                                    </div>
+                                    <div>
+                                        <h:outputText value="Minhas Fichas" />
+                                        <p>Veja suas Fichas aqui.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="centered service">
+                                    <div class="circle-border zoom-in">
+                                        <h:commandLink action="#{indexBean.editarMeusDados}">
+                                            <h:graphicImage class="img-circle" url="/imagens/Perfil.png" alt="Jogar Aventura" width="150" height="150"/><br/>
+
+                                        </h:commandLink>  
+                                    </div>
+                                    <div>
+                                        <h:outputText value="Meus Dados" /> 
+                                        <p>Vejas aqui as informações da sua conta.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h:inputHidden value="#{indexBean.usuario.nome}"  />
+                    </h:form>
+
+                </div>
+
+                <!-- -->
+
+            </div>
+        </div>
+        <!-- Service section end -->
+        <!-- Portfolio section start -->
+        <div class="section secondary-section " id="portfolio">
+            <div class="triangle"></div>
+        </div>
+
+        <!-- Footer section start -->
+        <div class="footer">
+            <p>2015 Mesa de RPG Online </p>
+        </div>
+        <!-- Footer section end -->
+        <!-- ScrollUp button start -->
+        <div class="scrollup">
+            <a href="#">
+                <i class="icon-up-open"></i>
+            </a>
+        </div>
+        <!-- ScrollUp button end -->
+        <!-- Include javascript -->
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/bootstrap.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.cslider.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/jquery.inview.js"></script>
+        <script type="text/javascript" src="#{request.getContextPath()}/js/app.js"></script>
+    </body>
+</html>
