@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
 import util.MessageUtil;
+import util.SenhaUtil;
 import util.SessaoUtil;
 
 /**
@@ -76,6 +77,9 @@ public class UsuarioBean implements Serializable {
 
         if (this.novaSenha != "") {
             if (this.novaSenha.equals(this.confirmaSenha)) {
+                
+                novaSenha = SenhaUtil.convertStringToMd5(novaSenha);
+                
                 usuario.setSenha(novaSenha);
             } else {
                 MessageUtil.ErrorMessage(null, "As Senhas São Diferentes!", "As Senhas São Diferentes!");

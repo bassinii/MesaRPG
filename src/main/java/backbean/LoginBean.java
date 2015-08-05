@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
 import util.MessageUtil;
+import util.SenhaUtil;
 import util.SessaoUtil;
 
 /**
@@ -53,6 +54,9 @@ public class LoginBean implements Serializable {
         UsuarioCrudHibernate crud = new UsuarioCrudHibernate();
 
         try {
+            
+            senha = SenhaUtil.convertStringToMd5(senha);
+            
             Usuario usuarioLogado = crud.buscaUsuario(login, senha);
             if (usuarioLogado != null) {
                 SessaoUtil.setElementSession("usuarioLogado", usuarioLogado);

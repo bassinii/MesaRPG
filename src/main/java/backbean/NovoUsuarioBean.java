@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
 import util.MessageUtil;
+import util.SenhaUtil;
 import util.SessaoUtil;
 
 /**
@@ -42,6 +43,11 @@ public class NovoUsuarioBean implements Serializable {
     public String salvar() {
 
         try {
+            
+            String cript = SenhaUtil.convertStringToMd5(this.novoUsuario.getSenha());
+            
+            this.novoUsuario.setSenha(cript);
+            
             UsuarioCrudHibernate crud = new UsuarioCrudHibernate();
             crud.salvar(novoUsuario);
             this.novoUsuario = null;

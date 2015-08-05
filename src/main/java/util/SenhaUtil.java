@@ -6,6 +6,7 @@
 package util;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -15,29 +16,20 @@ import java.security.NoSuchAlgorithmException;
  */
 public class SenhaUtil {
 
-    private static String convertStringToMd5(String valor) {
-        MessageDigest mDigest;
+    public static String convertStringToMd5(String input) {
         try {
-            //Instanciamos o nosso HASH MD5, poderíamos usar outro como 
-            //SHA, por exemplo, mas optamos por MD5. 
-            mDigest = MessageDigest.getInstance("MD5");
-            //Convert a String valor para um array de bytes em MD5 
-            byte[] valorMD5 = mDigest.digest(valor.getBytes("UTF-8"));
-            //Convertemos os bytes para hexadecimal, assim podemos salvar 
-            //no banco para posterior comparação se senhas 
-            StringBuffer sb = new StringBuffer();
-            for (byte b : valorMD5) {
-                sb.append(Integer.toHexString((b & 0xFF) | 0x100).substring(1, 3));
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(input.getBytes());
+            BigInteger number = new BigInteger(1, messageDigest);
+            String hashtext = number.toString(16);
+            // Now we need to zero pad it if you actually want the full 32 chars.
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
             }
-            return sb.toString();
-        } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block 
-            e.printStackTrace();
-            return null;
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block 
-            e.printStackTrace();
-            return null;
+            return hashtext;
+        }
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
 
     }
